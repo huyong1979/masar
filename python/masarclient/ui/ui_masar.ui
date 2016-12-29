@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>masar</class>
+ <widget class="QMainWindow" name="masar">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1532</width>
+    <height>1168</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>237</red>
+        <green>236</green>
+        <blue>235</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>237</red>
+        <green>236</green>
+        <blue>235</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>237</red>
+        <green>236</green>
+        <blue>235</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>237</red>
+        <green>236</green>
+        <blue>235</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>MASAR Viewer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="masarRC.qrc">
+    <normaloff>:/icons/nsls2-logo.png</normaloff>:/icons/nsls2-logo.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="documentMode">
+   <bool>true</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::ForceTabbedDocks|QMainWindow::VerticalTabs</set>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="mainwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QSplitter" name="configEventSplitter">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>600</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <layout class="QVBoxLayout" name="configVerticalLayout" stretch="0">
+         <item>
+          <layout class="QGridLayout" name="configGridLayout">
+           <item row="0" column="1">
+            <widget class="QComboBox" name="systemCombox">
+             <property name="cursor">
+              <cursorShape>ArrowCursor</cursorShape>
+             </property>
+             <property name="mouseTracking">
+              <bool>true</bool>
+             </property>
+             <property name="toolTip">
+              <string>sub-system to which configs/PV list belong</string>
+             </property>
+             <property name="currentIndex">
+              <number>-1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="systemLabel">
+             <property name="text">
+              <string>System</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="configFilterLabel">
+             <property name="text">
+              <string>Config Filter</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="fetchConfigButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;get pre-defined configurations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Select Config(s)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QTableWidget" name="configTableWidget">
+             <property name="focusPolicy">
+              <enum>Qt::WheelFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ConfigTable: a list of pre-defined configs&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;CLICK&lt;/span&gt; on ONE row to fetch its list of snapshot(s)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::WinPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::ExtendedSelection</enum>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectRows</enum>
+             </property>
+             <property name="sortingEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="configFilterLineEdit">
+             <property name="toolTip">
+              <string>using expression like *LN*</string>
+             </property>
+             <property name="text">
+              <string extracomment="such as LN*">*</string>
+             </property>
+             <property name="dragEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <layout class="QVBoxLayout" name="eventVerticalLayout">
+         <item>
+          <layout class="QGridLayout" name="eventGridLayout">
+           <item row="5" column="0" colspan="2">
+            <widget class="QPushButton" name="fetchEventButton">
+             <property name="toolTip">
+              <string>get a list of snapshot(s) or event(s)</string>
+             </property>
+             <property name="text">
+              <string>Select Snapshot(s)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="ByWho">
+             <property name="text">
+              <string>Author</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="QDateTimeEdit" name="eventEndDateTime">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="dateTime">
+              <datetime>
+               <hour>0</hour>
+               <minute>0</minute>
+               <second>0</second>
+               <year>2000</year>
+               <month>3</month>
+               <day>1</day>
+              </datetime>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM-dd hh:mm:ss</string>
+             </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QDateTimeEdit" name="eventStartDateTime">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM-dd hh:mm:ss</string>
+             </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="eventFilterLabel">
+             <property name="text">
+              <string>Snapshot Desc</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="eventEndLabel">
+             <property name="text">
+              <string>To:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="authorTextEdit">
+             <property name="toolTip">
+              <string>using expression like *mei*</string>
+             </property>
+             <property name="text">
+              <string>*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QCheckBox" name="timeRangeCheckBox">
+             <property name="text">
+              <string>Use time range:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="eventFilterLineEdit">
+             <property name="toolTip">
+              <string>using expression like *BPM*</string>
+             </property>
+             <property name="text">
+              <string>*</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="eventStartLabel">
+             <property name="text">
+              <string>From:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="eventTableWidget">
+           <property name="minimumSize">
+            <size>
+             <width>350</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="mouseTracking">
+            <bool>true</bool>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;snapshotTable: a list of saved snapshot(s) for the selected config(s)&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00ff00;&quot;&gt;Double CLICK&lt;/span&gt; on one row to display &lt;span style=&quot; color:#00ff00;&quot;&gt;ONE&lt;/span&gt; snapshot data &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::ExtendedSelection</enum>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+           <property name="sortingEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="snapshotGridLayout">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="getGoldenButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;get the Golden snapshot for the selected Config above&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Dispaly Golden Snapshot</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QPushButton" name="fetchSnapshotButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>get PVs data</string>
+             </property>
+             <property name="text">
+              <string>Display Snapshot(s)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QPushButton" name="searchSnapshotButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;please enter a snapshot ID (one integer number, and only one) in the left box, then click this button&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="statusTip">
+              <string/>
+             </property>
+             <property name="text">
+              <string>search a snapshot by its ID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLineEdit" name="snapshotIdLineEdit">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please enter one integer number and only one, then press Enter key or click the right-side button&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="setGoldenButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the selected snapshot above as golden snapshot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string>Set it As Golden</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTabWidget" name="snapshotTabWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>500</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="documentMode">
+           <bool>false</bool>
+          </property>
+          <property name="tabsClosable">
+           <bool>true</bool>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="commentTab">
+           <attribute name="title">
+            <string>Welcome to MASAR</string>
+           </attribute>
+           <attribute name="toolTip">
+            <string>How to use MASAR</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="commentTabWindowLayout">
+            <item>
+             <widget class="QPlainTextEdit" name="currentCommentText">
+              <property name="minimumSize">
+               <size>
+                <width>500</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="palette">
+               <palette>
+                <active>
+                 <colorrole role="Base">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>231</red>
+                    <green>231</green>
+                    <blue>231</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                 <colorrole role="Window">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>237</red>
+                    <green>236</green>
+                    <blue>235</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </active>
+                <inactive>
+                 <colorrole role="Base">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>231</red>
+                    <green>231</green>
+                    <blue>231</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                 <colorrole role="Window">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>237</red>
+                    <green>236</green>
+                    <blue>235</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </inactive>
+                <disabled>
+                 <colorrole role="Base">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>237</red>
+                    <green>236</green>
+                    <blue>235</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                 <colorrole role="Window">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>237</red>
+                    <green>236</green>
+                    <blue>235</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </disabled>
+               </palette>
+              </property>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="plainText">
+               <string>
+MASAR is an EPICS V4 service which does MAchine Snapshot, Archiving, and Retrieve [1] [2]. This software was originally developed by National Synchrotron Light Source II at Brookhaven National Laboratory.
+
+
+Quick Start ...
+
+    1. To restore the machine to a particular state/snapshot: click (either single or double) on one row in the left-top Config table --&gt; double click on one row in the left-bottom Snapshot table --&gt; click the button &quot;Restore Machine&quot;;
+    
+    2. To save a machine snapshot: click on one row in the left-top Config table  --&gt; click &quot;Save Machine Snapshot ...&quot; --&gt; put a concise description (&lt;80 characters) such as: &quot;SBM EmitX and Y 69 nm. This is golden&quot;;
+
+    3. To compare multiple saved snapshots: click on one row in the left-top Config table --&gt; Ctrl + mouse click to select multiple rows in the left-bottom Snapshot table --&gt; click &quot;Compare Snapshots...&quot;;
+
+    4. To search / filter PVs by clicking the button &quot;PV search&quot; or using the keyboard 'Ctrl + F': use * to match multiple characters, use ? to match single character, use [m-n] to match the range from m to n, and use [!character-set] to exclude PVs which contain any character in the 'character-set', i.e. *BPM:[1-3]* means searching any PV name which contains BPM:1, BPM:2 and BPM:3, *[!SP] means searching PV which doesn't have 'SP' at the end. The searching can be nested -- you may search the filtered snapshot again and again using different search pattern to refine your search result; 
+
+    5. To partially restore snapshot (don't restore some PVs): click 'Not Restore' in the snapshot Tab for the PV you don't want to restore; better way: firstly filter PVs as #4 instruction, then only restore the filtered PVs by clicking &quot;Restore Machine&quot;.
+
+
+Tips ...
+    
+    1. Always put the mouse cursor over the things you don't know for 2 seconds, the GUI will show you what it is or how to do it;
+    
+    2. Always follow the instructions on the pop-up message which shows something is not working as expected and how to fix it; 
+  
+    3. MASAR GUI is mainly table-based. Treat the table as Microsoft Excel: resize the column, sort by the column, select multiple rows, Ctrl + c to copy one single cell ...  
+   
+
+Terminology ...
+    
+    * machine: it can be accelerator, system, etc.: Linac, Booster, Storage Ring, BPM system, Magnet system ...
+    
+    * snapshot: a list of PVs associated with data (value, time stamp, alarm status ... ) saved at a particular time for a particular machine state.
+
+    * config table: pre-defined a list of configurations for different machines; it has a unique Name, Description, Date when it is created ...  
+
+    * snapshot table: a list of saved snapshots (without EPICS data) for a particular config; it has Config Name which is listed in the config table, Description,  Author ...  
+
+    * snapshot tab: the EPICS data of one snapshot is presented in the form of table in a Tab window.
+
+
+More Info ...
+
+    please check out the links below:
+
+    [1] http://epics-pvdata.sourceforge.net/
+    [2] http://epics-pvdata.hg.sourceforge.net/hgweb/epics-pvdata/masarService/raw-file/tip/documentation/userManual.html</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              </property>
+              <property name="backgroundVisible">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="3" rowspan="2">
+           <widget class="QPushButton" name="compareSnapshotsButton">
+            <property name="text">
+             <string>Compare Snapshots...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3" alignment="Qt::AlignLeft">
+           <widget class="QLineEdit" name="pvFilterLineEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;*BPM:[1-3]* to search any pv containing BPM:1, BPM:2, and BPM:3; press Enter key  or click the button 'PV Search' when you are done with the search pattern&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::RightToLeft</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="2">
+           <widget class="QPushButton" name="getLiveMachineButton">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>Compare Live Machine</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" rowspan="2">
+           <widget class="QPushButton" name="saveMachineSnapshotButton">
+            <property name="text">
+             <string>Save Machine Snapshot ...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" rowspan="2">
+           <widget class="QPushButton" name="restoreMachineButton">
+            <property name="toolTip">
+             <string>one-step simple put</string>
+            </property>
+            <property name="text">
+             <string>Restore Machine</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4" rowspan="2">
+           <widget class="QPushButton" name="saveDataFileButton">
+            <property name="text">
+             <string>Export Snapshot to File ...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4" alignment="Qt::AlignLeft">
+           <widget class="QPushButton" name="pvSearchButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;search/filter pvs in the active snapshot Tab (the one you are watching. You can use Ctrl + F to search) &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string>PV Search</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="rampingMachineButton">
+            <property name="toolTip">
+             <string>multiple-step grdual put</string>
+            </property>
+            <property name="text">
+             <string>Ramping Machine...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1532</width>
+     <height>19</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>systemCombox</tabstop>
+  <tabstop>configFilterLineEdit</tabstop>
+  <tabstop>fetchConfigButton</tabstop>
+  <tabstop>configTableWidget</tabstop>
+  <tabstop>eventFilterLineEdit</tabstop>
+  <tabstop>authorTextEdit</tabstop>
+  <tabstop>timeRangeCheckBox</tabstop>
+  <tabstop>eventStartDateTime</tabstop>
+  <tabstop>eventEndDateTime</tabstop>
+  <tabstop>fetchEventButton</tabstop>
+  <tabstop>eventTableWidget</tabstop>
+  <tabstop>snapshotTabWidget</tabstop>
+  <tabstop>currentCommentText</tabstop>
+ </tabstops>
+ <resources>
+  <include location="masarRC.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>eventFilterLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>masar</receiver>
+   <slot>eventFilterChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>515</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>authorTextEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>masar</receiver>
+   <slot>authorTextChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeRangeCheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>masar</receiver>
+   <slot>useTimeRange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>566</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fetchEventButton</sender>
+   <signal>clicked(void)</signal>
+   <receiver>masar</receiver>
+   <slot>fetchEventAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>648</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fetchSnapshotButton</sender>
+   <signal>clicked(void)</signal>
+   <receiver>masar</receiver>
+   <slot>retrieveSnapshot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>1234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>restoreMachineButton</sender>
+   <signal>clicked(void)</signal>
+   <receiver>masar</receiver>
+   <slot>restoreSnapshotAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>518</x>
+     <y>1204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>getLiveMachineButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>getLiveMachineAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>673</x>
+     <y>1204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>603</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveDataFileButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>saveDataFileAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1187</x>
+     <y>1204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>systemCombox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>masar</receiver>
+   <slot>systemComboxChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>configFilterLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>masar</receiver>
+   <slot>configFilterChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>75</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fetchConfigButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>fetchConfigAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>snapshotTabWidget</sender>
+   <signal>tabCloseRequested(int)</signal>
+   <receiver>masar</receiver>
+   <slot>closeTab()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>780</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>791</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>snapshotTabWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>masar</receiver>
+   <slot>configTab()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1053</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>682</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>compareSnapshotsButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>openMsgBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1010</x>
+     <y>1204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>888</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveMachineSnapshotButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>saveMachineSnapshot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>855</x>
+     <y>1204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>804</x>
+     <y>924</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pvFilterLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>masar</receiver>
+   <slot>pvFilterChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1010</x>
+     <y>1232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>816</x>
+     <y>947</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pvSearchButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>searchPV()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1091</x>
+     <y>1234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>990</x>
+     <y>946</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rampingMachineButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>rampingMachine()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>518</x>
+     <y>1234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>973</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>snapshotIdLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>masar</receiver>
+   <slot>snapshotIdChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>1202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>1244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searchSnapshotButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>retrieveSnapshotById()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>286</x>
+     <y>1197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>1238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setGoldenButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>setGoldenSnapshot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>61</x>
+     <y>1162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>1243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>getGoldenButton</sender>
+   <signal>clicked()</signal>
+   <receiver>masar</receiver>
+   <slot>fetchGoldenSnapshotAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>1162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>636</x>
+     <y>1239</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>systemComboxChanged(QString)</slot>
+  <slot>configFilterChanged()</slot>
+  <slot>fetchConfigAction()</slot>
+  <slot>saveMachinePreviewAction()</slot>
+  <slot>getMachinePreviewAction()</slot>
+  <slot>eventFilterChanged()</slot>
+  <slot>useTimeRange()</slot>
+  <slot>fetchEventAction()</slot>
+  <slot>retrieveSnapshot()</slot>
+  <slot>restoreSnapshotAction()</slot>
+  <slot>getLiveMachineAction()</slot>
+  <slot>authorTextChanged()</slot>
+  <slot>saveDataFileAction()</slot>
+  <slot>saveMachineSnapshot()</slot>
+  <slot>closeTab()</slot>
+  <slot>configTab()</slot>
+  <slot>compareSnapshots()</slot>
+  <slot>openMsgBox()</slot>
+  <slot>restoreFilterChanged()</slot>
+  <slot>partialRestoreMachine()</slot>
+  <slot>pvFilterChanged()</slot>
+  <slot>searchPV()</slot>
+  <slot>rampingMachine()</slot>
+  <slot>snapshotIdChanged()</slot>
+  <slot>retrieveSnapshotById()</slot>
+  <slot>setGoldenSnapshot()</slot>
+  <slot>fetchGoldenSnapshotAction()</slot>
+ </slots>
+</ui>
